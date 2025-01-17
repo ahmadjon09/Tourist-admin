@@ -30,7 +30,7 @@ export const AddProduct = () => {
         formImageData.append('photos', files[i])
       }
       setImagePending(true)
-      const { data } = await Axios.post('/upload', formImageData)
+      const { data } = await Axios.post('upload', formImageData)
       setProductData(prevData => ({
         ...prevData,
         photos: [...prevData.photos, ...data.photos]
@@ -52,7 +52,7 @@ export const AddProduct = () => {
 
     try {
       setIsPending(true)
-      await Axios.post('/product/create', productData)
+      await Axios.post('product/create', productData)
       navigate('/products')
     } catch (error) {
       console.error(error)
