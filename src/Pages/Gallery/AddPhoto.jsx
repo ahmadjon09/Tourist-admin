@@ -28,10 +28,10 @@ export const AddPhoto = () => {
         formImageData.append('photos', files[i])
       }
       setImagePending(true)
-      const { data } = await Axios.post('/upload', formImageData)
+      const { data } = await Axios.post('upload', formImageData)
       setphotoData(prevData => ({
         ...prevData,
-        photos: [...prevData.photos, ...data.photos]
+        photos: [...data.photos]
       }))
     } catch (err) {
       console.error(err)
